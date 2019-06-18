@@ -8,7 +8,7 @@ import random
 import networkx as nx
 from itertools import zip_longest
 from scipy.io import loadmat
-from scipy.sparse import issparse
+from scipy.sparse import issparse, coo_matrix
 
 from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import cpu_count
@@ -224,13 +224,7 @@ def load_matfile(file_, variable_name="network", undirected=True):
 
 
 def adjacency_matrix_from_edges(edges):
-    n = np.amax(edges) + 1
-    adj_matrix = np.zeros((n, n))
-
-    for [A, B] in edges:
-        adj_matrix[A][B] += 1
-
-    return adj_matrix
+    return coo_matrix((np.zeros(len(edges)), (edges[:, 0], edges[:, 1])))
 
 
 def load_csv_edges(file_, undirected=True):
