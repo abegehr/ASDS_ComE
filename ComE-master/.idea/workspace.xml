@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.bbl" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.bbl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.blg" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.blg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.out" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/comment.cut" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/comment.cut" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.tex" afterDir="false" />
-    </list>
+    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,19 +159,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560816080115</updated>
-      <workItem from="1560816087009" duration="3371000" />
+      <workItem from="1560816087009" duration="3458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3371000" />
+    <option name="totallyTimeSpent" value="3458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20386267" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20386267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -190,7 +180,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.50843376" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.50843376" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
