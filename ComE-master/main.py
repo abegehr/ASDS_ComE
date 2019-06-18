@@ -40,8 +40,7 @@ if __name__ == "__main__":
     num_workers = 10                        # number of thread
     num_iter = 1                            # number of overall iteration
     reg_covar = 0.00001                     # regularization coefficient to ensure positive covar
-    input_folder = 'Twitter'
-    input_file = 'anthrocon_edgelist'       # name of the input file
+    input_file = 'anthrocon'                # name of the input file
     output_file = 'anthrocon'               # name of the output file
     batch_size = 50
     window_size = 10    # windows size used to compute the context embedding
@@ -53,13 +52,13 @@ if __name__ == "__main__":
     down_sampling = 0.0
 
     ks = [5]
-    walks_filebase = os.path.join('data', output_file)            # where read/write the sampled path
+    walks_filebase = os.path.join('data', input_file)            # where read/write the sampled path
 
 
 
     #CONSTRUCT THE GRAPH
     #G = graph_utils.load_matfile(os.path.join('./data', input_file, input_file + '.mat'), undirected=True)
-    G = graph_utils.load_csv_edges(os.path.join('./data', input_folder, input_file + '.csv'), undirected=True)
+    G = graph_utils.load_csv_edges(os.path.join('./data', input_file, input_file + '.csv'), undirected=True)
     # Sampling the random walks for context
     log.info("sampling the paths")
     walk_files = graph_utils.write_walks_to_disk(G, os.path.join(walks_filebase, "{}.walks".format(output_file)),
