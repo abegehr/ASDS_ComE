@@ -215,11 +215,31 @@ def count_words(file):
             c.update(words)
     return c
 
-def load_matfile(file_, variable_name="network", undirected=True):
-  mat_varables = loadmat(file_)
-  mat_matrix = mat_varables[variable_name]
 
-  return from_numpy(mat_matrix, undirected)
+def load_matfile(file_, variable_name="network", undirected=True):
+    mat_varables = loadmat(file_)
+    mat_matrix = mat_varables[variable_name]
+
+    return from_numpy(mat_matrix, undirected)
+
+
+def adjacency_matrix_from_edges(edges):
+    n = np.amax(edges) + 1
+    adj_matrix = np.zeros((n, n))
+
+    for [A, B] in edges:
+        adj_matrix[A][B] += 1
+
+    return adj_matrix
+
+
+def load_csv_edges(file_, undirected=True):
+  edges = np.genfromtxt(file_, dtype=int, delimiter=',')
+
+  adj_matrix = adjacency_matrix_from_edges(edges)
+
+  return from_numpy(adj_matrix, undirected)
+
 
 def from_numpy(x, undirected=True):
     """
