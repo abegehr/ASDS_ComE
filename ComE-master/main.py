@@ -36,16 +36,16 @@ if __name__ == "__main__":
     #Reading the input parameters form the configuration files
     number_walks = 10                       # number of walks for each node
     walk_length = 80                        # length of each walk
-    representation_size = 128               # size of the embedding
+    representation_size = 2                 # size of the embedding
     num_workers = 10                        # number of thread
     num_iter = 1                            # number of overall iteration
     reg_covar = 0.00001                     # regularization coefficient to ensure positive covar
-    input_file = 'twitter'                # name of the input file
-    output_file = 'twitter'               # name of the output file
+    input_file = 'twitter'                  # name of the input file
+    output_file = 'twitter'                 # name of the output file
     batch_size = 50
-    window_size = 10    # windows size used to compute the context embedding
-    negative = 5        # number of negative sample
-    lr = 0.025            # learning rate
+    window_size = 10                        # windows size used to compute the context embedding
+    negative = 5                            # number of negative sample
+    lr = 0.025                              # learning rate
 
     
     alpha_betas = [(0.1, 0.1)]
