@@ -33,12 +33,12 @@ except AttributeError:
 
 if __name__ == "__main__":
 
-    #Reading the input parameters form the configuration files
+    # Reading the input parameters form the configuration files
     number_walks = 10                       # number of walks for each node
     walk_length = 80                        # length of each walk
-    representation_size = 2                 # size of the embedding
+    representation_size = 4                 # size of the embedding
     num_workers = 10                        # number of thread
-    num_iter = 1                            # number of overall iteration
+    num_iter = 5                            # number of overall iteration
     reg_covar = 0.00001                     # regularization coefficient to ensure positive covar
     input_file = 'twitter'                  # name of the input file
     output_file = 'twitter'                 # name of the output file
@@ -47,17 +47,16 @@ if __name__ == "__main__":
     negative = 5                            # number of negative sample
     lr = 0.025                              # learning rate
 
-    
     alpha_betas = [(0.1, 0.1)]
     down_sampling = 0.0
 
-    ks = [5]
+    ks = [7]                                # number of communities
     walks_filebase = os.path.join('data', input_file)            # where read/write the sampled path
 
 
 
-    #CONSTRUCT THE GRAPH
-    #G = graph_utils.load_matfile(os.path.join('./data', input_file, input_file + '.mat'), undirected=True)
+    # CONSTRUCT THE GRAPH
+    # G = graph_utils.load_matfile(os.path.join('./data', input_file, input_file + '.mat'), undirected=True)
     G = graph_utils.load_csv_edges(os.path.join('./data', input_file, input_file + '.csv'), undirected=True)
     # Sampling the random walks for context
     log.info("sampling the paths")
@@ -77,11 +76,10 @@ if __name__ == "__main__":
                   path_labels="./data")
 
 
-    #Learning algorithm
+    # Learning algorithm
     node_learner = Node2Vec(workers=num_workers, negative=negative, lr=lr)
     cont_learner = Context2Vec(window_size=window_size, workers=num_workers, negative=negative, lr=lr)
     com_learner = Community2Vec(lr=lr)
-
 
     context_total_path = G.number_of_nodes() * number_walks * walk_length
     edges = np.array(G.edges())
