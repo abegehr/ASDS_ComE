@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # Reading the input parameters form the configuration files
     number_walks = 10                       # number of walks for each node
     walk_length = 80                        # length of each walk
-    representation_size = 4                 # size of the embedding
+    representation_size = 128               # size of the embedding
     num_workers = 10                        # number of thread
     num_iter = 5                            # number of overall iteration
     reg_covar = 0.00001                     # regularization coefficient to ensure positive covar
