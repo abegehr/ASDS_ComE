@@ -96,7 +96,7 @@ def node_space_plot_2D(embedding, color_values,
     nodes_id = np.array(list(range(1, len(embedding) + 1)))
     data = np.concatenate((embedding, np.expand_dims(nodes_id, axis=1),), axis=1)
 
-    plt.scatter(data[:, 0], data[:, 1], color=color_values, marker='o', cmap=CAMP)
+    plt.scatter(data[:, 0], data[:, 1], c=color_values, marker='o', cmap=CAMP)
 
     for node in data:
         ax.text(node[0], node[1], '%s' % (str(int(node[2]))), size=10)
@@ -147,7 +147,7 @@ def node_space_plot_2D_elipsoid(embedding, color_values,
     nodes_id = np.array(list(range(1, len(embedding)+1)))
     data = np.concatenate((embedding, np.expand_dims(nodes_id, axis=1), ), axis=1)
 
-    plt.scatter(data[:,0], data[:,1], color=color_values, marker='o', cmap=CAMP)
+    plt.scatter(data[:,0], data[:,1], c=color_values, marker='o', cmap=CAMP)
 
     for node in data:
         ax.text(node[0], node[1],  '%s' % (str(int(node[2]))), size=10)
