@@ -50,7 +50,7 @@ if __name__ == "__main__":
     alpha_betas = [(0.1, 0.1)]
     down_sampling = 0.0
 
-    ks = [7]                                # number of communities
+    ks = [2]                                # number of communities
     walks_filebase = os.path.join('data', input_file)            # where read/write the sampled path
 
 
@@ -151,4 +151,3 @@ if __name__ == "__main__":
                                                                                                                        iter_node,
                                                                                                                             model.k,
                                                                                                                             down_sampling))
-
