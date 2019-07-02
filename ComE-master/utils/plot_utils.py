@@ -19,7 +19,7 @@ def _pos_coloring(G, norm_pos):
     '''
     Coloring function based on the position of the nodes
     :param G: Graph
-    :param norm_pos: diict -> node_id: 2d node position
+    :param norm_pos: dict -> node_id: 2d node position
     :return: Color for each node
     '''
     nodes_order = []
