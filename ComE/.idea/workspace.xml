@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-0.1_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-7_ds-0.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-0.1_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-7_ds-0.0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,11 +15,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-                  <folding>
-                    <element signature="e#20#29#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="36">
+                  <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="16" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -35,8 +28,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/utils/plot_utils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="932">
-                  <caret line="137" column="31" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="31" />
+                <state relative-caret-position="251">
+                  <caret line="88" column="46" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -169,22 +162,23 @@
       <updated>1560816080115</updated>
       <workItem from="1560816087009" duration="3458000" />
       <workItem from="1561743621222" duration="2296000" />
-      <workItem from="1562100996693" duration="1171000" />
+      <workItem from="1562100996693" duration="1914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6925000" />
+    <option name="totallyTimeSpent" value="7668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20958512" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.116595134" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4807229" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4807229" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -238,20 +232,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/plot_utils.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="932">
-          <caret line="137" column="31" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="31" />
+        <state relative-caret-position="36">
+          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="16" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/utils/plot_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="38" column="44" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-          <folding>
-            <element signature="e#20#29#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="251">
+          <caret line="88" column="46" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="46" />
         </state>
       </provider>
     </entry>
