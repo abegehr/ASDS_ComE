@@ -152,3 +152,6 @@ if __name__ == "__main__":
                                                                                                                             model.k,
                                                                                                                             down_sampling))
 
+#print(model.__dict__)
+#print("model.node_embedding: ", model.node_embedding)
+#print("model.context_embedding: ", model.context_embedding)
