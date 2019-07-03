@@ -39,7 +39,7 @@ if __name__ == "__main__":
     walk_length = 80                        # length of each walk
     representation_size = 128               # size of the embedding
     num_workers = 10                        # number of thread
-    num_iter = 1                            # number of overall iteration
+    num_iter = 9                            # number of overall iteration
     reg_covar = 0.00001                     # regularization coefficient to ensure positive covar
     input_file = 'twitter'                  # name of the input file
     output_file = 'twitter'                 # name of the output file
