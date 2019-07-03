@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/data/g_mixture.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/data/g_mixture.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/labels_pred.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/labels_pred.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-0.1_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-2_ds-0.0.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/louvain_modularity.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/louvain_modularity.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/results.ipynb" afterDir="false" />
-    </list>
+    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,23 +179,22 @@
       <workItem from="1561743621222" duration="2296000" />
       <workItem from="1562100996693" duration="1914000" />
       <workItem from="1562104314960" duration="1045000" />
-      <workItem from="1562106250936" duration="17465000" />
+      <workItem from="1562106250936" duration="17472000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26178000" />
+    <option name="totallyTimeSpent" value="26185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15879828" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41686746" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41686746" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
