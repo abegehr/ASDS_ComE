@@ -47,7 +47,7 @@ if __name__ == "__main__":
     negative = 5                            # number of negative sample
     lr = 0.025                              # learning rate
 
-    alpha_betas = [(0.1, 0.1)]
+    alpha_betas = [(0.1, 5)]
     down_sampling = 0.0
 
     ks = [2]                                # number of communities
