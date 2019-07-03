@@ -155,3 +155,7 @@ if __name__ == "__main__":
 #print(model.__dict__)
 #print("model.node_embedding: ", model.node_embedding)
 #print("model.context_embedding: ", model.context_embedding)
+print("com_learner: ", com_learner)
+print("com_learner.g_mixture: ", com_learner.g_mixture)
+print("model.pi: ", model.pi)  # predictions in here (hot-encoded)
+print("model.pi.shape: ", model.pi.shape)
