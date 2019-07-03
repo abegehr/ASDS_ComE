@@ -37,9 +37,9 @@ if __name__ == "__main__":
     # Reading the input parameters form the configuration files
     number_walks = 10                       # number of walks for each node
     walk_length = 80                        # length of each walk
-    representation_size = 128               # size of the embedding
+    representation_size = 2                 # size of the embedding
     num_workers = 10                        # number of thread
-    num_iter = 9                            # number of overall iteration
+    num_iter = 3                            # number of overall iteration
     reg_covar = 0.00001                     # regularization coefficient to ensure positive covar
     input_file = 'twitter'                  # name of the input file
     output_file = 'twitter'                 # name of the output file
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     alpha_betas = [(0.1, 5)]
     down_sampling = 0.0
 
-    ks = [7]                                # number of communities
+    ks = [2]                                # number of communities
     walks_filebase = os.path.join('data', input_file)            # where read/write the sampled path
 
 

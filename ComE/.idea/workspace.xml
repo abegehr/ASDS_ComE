@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/g_mixture.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/data/g_mixture.joblib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/labels_pred.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/labels_pred.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-7_ds-0.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-7_ds-0.0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.labels" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.labels" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.0" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.1" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.2" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.3" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.4" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.5" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.6" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.7" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.8" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.9" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-7_ds-0.0.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/louvain_modularity.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/louvain_modularity.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/results.ipynb" afterDir="false" />
@@ -20,22 +33,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="132" column="47" lean-forward="true" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
+            <state relative-caret-position="254">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
               <folding>
                 <element signature="e#20#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ADSCModel/community_embeddings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-568">
-              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="48" />
-              <folding>
-                <element signature="e#20#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,8 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>node_space_plot_2D_elipsoid</find>
-      <find>plot_utils</find>
       <find>embedd</find>
       <find>embedding</find>
       <find>load_ground_true</find>
@@ -74,7 +73,9 @@
       <find>pi</find>
       <find>multivariate_normal</find>
       <find>community_embedding</find>
+      <find>node_em</find>
       <find>node_embed</find>
+      <find>node2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,12 +187,12 @@
       <workItem from="1561743621222" duration="2296000" />
       <workItem from="1562100996693" duration="1914000" />
       <workItem from="1562104314960" duration="1045000" />
-      <workItem from="1562106250936" duration="12320000" />
+      <workItem from="1562106250936" duration="16424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21033000" />
+    <option name="totallyTimeSpent" value="25137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -236,7 +237,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ComE_master$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1562101310397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ComE$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1562182228853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ComE$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1562192119113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/anthrocon_alpha-0.1_beta-0.1_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-5_ds-0.0.txt" />
@@ -281,37 +282,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ADSCModel/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2307">
-          <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
-          <folding>
-            <element signature="e#20#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ADSCModel/context_embeddings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="40" column="24" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ADSCModel/node_embeddings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1108">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ADSCModel/community_embeddings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="48" />
-          <folding>
-            <element signature="e#20#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -322,10 +296,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ADSCModel/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="20" />
+          <folding>
+            <element signature="e#20#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ADSCModel/community_embeddings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding>
+            <element signature="e#20#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ADSCModel/node_embeddings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="132" column="47" lean-forward="true" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
+        <state relative-caret-position="254">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding>
             <element signature="e#20#29#0" expanded="true" />
           </folding>
