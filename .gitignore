@@ -115,3 +115,6 @@ dmypy.json
 
 # unix
 .DS_STORE
+
+
+ComE/data/twitter_pre-training.bin
