@@ -49,20 +49,48 @@ In this paper we will explore the graph embedding algorithm ComE developed by \c
 
 \section{Twitter Data} \label{twitter_data}
 
-Crawled datasets from Twitter, combined with event data that is supplied in the public GitHub repository \textit{fatemehsrz/Twitter\_Data} will be used.\cite{TwitterData}
+Crawled datasets from Twitter, combined with conference data that is supplied in the public GitHub repository \textit{fatemehsrz/Twitter\_Data} will be used.\cite{TwitterData}
 
 \subsection{Exploration}
 
-The supplied twitter data consists of three groups. Each concerning the twitter interactions of a user either attending or not attending one of three conferences. The three conferences are encoded as \textit{anthrocon}, \textit{comiccon2017}, and \textit{icann2016}.
+The supplied twitter data consists of three groups. Each concerning the twitter interactions of a user either attending or not attending one of three conferences. The three conferences are labeled as (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}.
 
 For each conference two CSVs are supplied:
 
 \begin{enumerate}
-	\item tweets: For each tweet an unique identifier, the content of tweet, an identifier for the user who posted the tweet and a label determining if the suer attended the event is supplied. 
+	\item tweets: For each tweet an unique identifier, the content of tweet, an identifier for the user who posted the tweet and a label determining if the suer attended the conference is supplied. 
 	\item edgelist: Each row represents an edge between two users. It will be assumed, that each edge represents an interaction on twitter. For example commenting and liking would count as interactions.
 \end{enumerate}
 
-The tweets id and content will be disregarded in our investigation, because we assume the tweet id does not include information we can utilize and we will not be participating in any NLP practices in this experiment.
+The tweets id and content will be disregarded in our investigation, because we assume the tweet id does not include information we can utilize since ComE does not support property graphs and we will not be participating in any NLP practices in this experiment.
+
+The tweet and edges datasets of the conferences have the following metrics:
+
+\begin{enumerate}
+	\item \textit{anthrocon}
+	\begin{itemize}
+		\item tweets: $3842$
+		\item users: $1060$
+		\item edges: $15788$
+		\item average edges per user: $\approx14.9$
+	\end{itemize}
+	\item \textit{comiccon2017}
+	\begin{itemize}
+		\item tweets: $4381$
+		\item users: $2495$
+		\item edges: $8203$
+		\item average edges per user: $\approx3.3$
+	\end{itemize}
+	\item \textit{icann2016}
+	\begin{itemize}
+		\item tweets: $2550$
+		\item users: $1016$
+		\item edges: $17045$
+		\item average edges per user: $\approx16.8$
+	\end{itemize}
+\end{enumerate}
+
+Find the jupyter notebook used for these calculations at \textit{preprocessing/exploratory.ipynb}.
 
 \subsection{Requirements}
 
@@ -95,13 +123,13 @@ See section \ref{edge_lists} for details on the implementation.
 
 Jupyter notebooks have been chosen for this task, due to the ability to swiftly iterate on solutions and algorithms, also the size of the supplied data allows for local computation on a personal computer.
 
-The preprocessing procedure for the twitter data mentioned above allows us to utilize ComE's ability to cluster nodes purely from interaction data and then test the results against our ground truth. The ground truth being if a specific user attended an event or not.
+The preprocessing procedure for the twitter data mentioned above allows us to utilize ComE's ability to cluster nodes purely from interaction data and then test the results against our ground truth. The ground truth being if a specific user attended an conference or not.
 
 \subsection{Labels}
 
-The users of each event dataset correspond to the nodes of the graph. Considering we have three datasets with a user identification column, this raises the following question: Do user identifiers apply across events? This question is important to know if the event datasets can be unioned and create an analysis on the whole dataset instead of doing multiple separate analyses.
+The users of each conference dataset correspond to the nodes of the graph. Considering we have three datasets with a user identification column, this raises the following question: Do user identifiers apply across conferences? This question is important to know if the conference datasets can be unioned and create an analysis on the whole dataset instead of doing multiple separate analyses.
 
-If the user identifier applies over all three events, the data can be unioned and eight labels (communities) could be extrapolated:
+If the user identifier applies over all three conferences, the data can be unioned and eight labels (communities) could be extrapolated:
 
 \begin{enumerate}
 	\item attended no conferences
@@ -114,9 +142,9 @@ If the user identifier applies over all three events, the data can be unioned an
 	\item attended anthrocon, comiccon2017, and icann2016
 \end{enumerate}
 
-These eight labels combining the data of all three events seemed logical at first and was implemented in the jupyter notebook at \textit{preprocessing/generate\_labels-old.ipynb}.
+These eight labels combining the data of all three conferences seemed logical at first and was implemented in the jupyter notebook at \textit{preprocessing/generate\_labels-old.ipynb}.
 
-Further data exploration led to the insight, that the user identifiers for all datasets start with the value $0$ and all user identifiers between the value $0$ and the maximum of the user identifiers for that event are present in the specific event. See \textit{preprocessing/user\_ids.ipynb} for detailed insights. Both insights suggest, that the user identifier does not after all apply across event datasets. Therefore, the event datasets will need to be tested individually. For each dataset there will be a separate binary labeling:
+Further data exploration led to the insight, that the user identifiers for all datasets start with the value $0$ and all user identifiers between the value $0$ and the maximum of the user identifiers for that conference are present in the specific conference. See \textit{preprocessing/user\_ids.ipynb} for detailed insights. Both insights suggest, that the user identifier does not after all apply across conference datasets. Therefore, the conference datasets will need to be tested individually. For each dataset there will be a separate binary labeling:
 
 \begin{enumerate}
 	\item did attended conference
@@ -190,21 +218,22 @@ If the input data should be altered to run the experiments on a different datase
 
 It is also possible to run ComE a different set of graph data. To accomplish this, the edge list and labeled nodes dataset needs to be placed in the correctly named folder inside \textit{ComE/} and the settings and hyperparameters in \textit{ComeE/main.py} should be configured accordingly. See the original paper by \citeauthor{Cav17}\cite{Cav17} and the associated GitHub repository \textit{andompesta/ComE}\cite{ComE} for further details.
 
-\section{Results}
+\subsection{Results}
 
 Running the experiment generates multiple files in \textit{ComE/data/}. The following files are generated:
 \begin{itemize}
-	\item \textit{data/g_mixture.joblib}:
-	\item \textit{data/labels_pred.txt}:
-	\item \textit{data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-2_ds-0.0.txt}: 
+	\item \textit{g\_mixture.joblib}: community embedding in the form of a saved binary of the gaussian mixture model where each gaussian represents one community.
+	\item \textit{labels\_pred.txt}: predicted labels for each node in the order or nodes supplied by \textit{twitter.labels}.
+	\item \textit{twitter\_alpha-0.1\_beta-5\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-2\_ds-0.0.txt}: node embeddings for each node where each line holds the node id and one value for each of the $K$ dimension of the embedding space.
 \end{itemize}
 
-\textit{twitter\_alpha-0.1\_beta-0.1\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-5\_ds-0.0.txt}, containing references to the dataset and hyper-parameters used.
+ComE was executed for all three conferences: (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}. The resulting files can be found at:
+\begin{enumerate}
+	\item anthrocon: \textit{}
+	\item comiccon2017: \textit{}
+	\item icann2016: \textit{}
+\end{enumerate}
 
-The results text-file has 2495 rows, one for each node. The first row for node 0 reads like follows:
-\begin{lstlisting}
-0	0.119466 -0.00167963 -0.0100419 -0.34768 -0.11141 -0.194391 -0.227025 0.265465 -0.256364 -0.144862 -0.201504 -0.259735 -0.0231989 -0.219537 -0.356864 -0.245884 -0.0975166 -0.280691 -0.0467756 0.189156 -0.0508059 0.139592 0.0410849 0.282847 0.0828746 -0.117361 -0.0487821 0.0498272 0.0363623 0.136442 -0.0659485 -0.0727705 0.23538 0.0174028 -0.151602 -0.268329 0.0175012 -0.240817 -0.159485 0.0954141 -0.0240037 -0.223511 -0.0585588 -0.0422711 0.0720152 -0.0403358 0.0575148 -0.0742481 -0.260205 0.018126 0.104849 -0.155449 -0.12444 0.222539 0.102688 -0.271191 -0.0153477 -0.00814301 -0.0245261 -0.0373094 -0.170265 0.0142297 0.247277 -0.249435 0.0778326 0.247973 -0.154441 0.351208 0.0586203 -0.0348056 0.0716461 -0.0177695 0.164301 -0.193287 -0.0499279 -0.0730012 -0.078206 -0.0191653 0.130336 0.233464 0.075438 0.0782676 -0.312208 0.260226 -0.0272545 -0.13308 -0.0962206 -0.294585 -0.0398387 0.196411 0.0928808 0.00576813 -0.00238099 -0.0967206 -0.170343 0.13645 0.377029 0.133433 -0.269607 0.0328925 0.252237 -0.222757 0.136386 0.118541 -0.0201975 -0.112246 -0.194241 -0.291803 0.102886 -0.0241 -0.244125 0.146849 0.238158 -0.17695 0.0589843 -0.10204 -0.0934185 0.0738336 0.0714247 -0.137283 0.380721 -0.34169 0.432387 0.239321 -0.0428069 0.263721 -0.108774 -0.0988426`
-\end{lstlisting}
 
 \subsection{Louvain Modularity}
 
