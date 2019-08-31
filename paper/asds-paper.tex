@@ -1,12 +1,10 @@
-%% temporarily setting to anonymous for blind peer-reviews
-\documentclass[sigconf, anonymous]{acmart}
-%\documentclass[sigconf]{acmart}
+\documentclass[sigconf]{acmart}
 
 \usepackage{hyperref}
 
 \usepackage{listings}
 \lstset{
-  columns=fullflexible,
+  columns=fullflexible, 
   frame=single,
   breaklines=true,
 }
@@ -36,7 +34,7 @@
 
 
 \begin{abstract}
-  The graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph} combines the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph. This research paper undertakes an experiment with the aims to explore ComE deeper and measure its effectivity on classifying crawled twitter data in comparison to Louvain Modularity with normalized mutual information.
+  The graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph} combines the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph. This research paper undertakes an experiment with the aims to explore ComE's inner workings and measure its effectivity of classifying crawled twitter data in comparison to Louvain Modularity with normalized mutual information.
 \end{abstract}
 
 
@@ -49,38 +47,87 @@ In their \citeyear{Cav17} paper \textit{Learning Community Embedding with Commun
 In this paper we will explore the graph embedding algorithm ComE developed by \citeauthor{Cav17}, generate embeddings using ComE for the Twitter dataset \cite{TwitterData} crawled by \citeauthor{TwitterData}, and compare the results to communities gained by applying Louvain Modularity using normalized mutual information (NMI) as a comparison measure.
 
 
-\section{Twitter Data}
+\section{Twitter Data} \label{twitter_data}
+
+Crawled datasets from Twitter, combined with event data that is supplied in the public GitHub repository \textit{fatemehsrz/Twitter\_Data} will be used.\cite{TwitterData}
 
 \subsection{Exploration}
 
 The supplied twitter data consists of three groups. Each concerning the twitter interactions of a user either attending or not attending one of three conferences. The three conferences are encoded as \textit{anthrocon}, \textit{comiccon2017}, and \textit{icann2016}.
 
-For each user, we can extrapolate from the data if the user attended either or multiple of the three conferences. We also have information on the content of the tweet the user dispatched and the tweet id. The last two information points will be less interesting to our investigation, as ComE does not support node properties and we are not participating in any NLP practices in this experiment.
+For each conference two CSVs are supplied:
+
+\begin{enumerate}
+	\item tweets: For each tweet an unique identifier, the content of tweet, an identifier for the user who posted the tweet and a label determining if the suer attended the event is supplied. 
+	\item edgelist: Each row represents an edge between two users. It will be assumed, that each edge represents an interaction on twitter. For example commenting and liking would count as interactions.
+\end{enumerate}
+
+The tweets id and content will be disregarded in our investigation, because we assume the tweet id does not include information we can utilize and we will not be participating in any NLP practices in this experiment.
 
 \subsection{Requirements}
 
 Both the problem space and ComE itself have requirements that the data needs to fulfill. The problem space of graph embeddings is first and foremost classification.
 
-The ComE algorithm requires the graph data to be supplied as a sparse adjacency matrix. The example code uses a MATLAB .mat file import. The data supplied by \citeauthor{TwitterData} is in an edge list format inside a CSV file. Each row represents an edge from one node to the other.
+Next to obvious requirements of graph embedding algorithms, the following requirements need to be fulfilled to apply ComE on the provided Twitter data specifically:
 
-ComE also requires the nodes to be labeled for knowing the number K of clusters it should optimize for and testing the resulting clusters against the supplied ground truth.
+\begin{enumerate}
+	\item The ComE algorithm requires the graph data to be supplied as a \textbf{sparse adjacency matrix}. The example code uses a MATLAB .mat file import. The data supplied by \citeauthor{TwitterData} is in an edge list format inside a CSV file. Each row represents an edge from one node to the other.
+	\item ComE requires the nodes to be \textbf{labeled} for training to determine the number K of clusters it should optimize for, also we will be using the ground truth to test the resulting clusters against.
+\end{enumerate}
 
 \subsection{Data Preparation}
 
-These two requirements ComE has on its input data need to be realized by data preprocessing. Jupyter notebooks have been chosen for this task, due to the ability to swiftly iterate on solutions and algorithms, also the size of the supplied data allows for local computation on a personal computer.
+The two requirements of formatting the graph as a sparse adjacency matrix and the nodes with labels that make sense from an application standpoint will be fulfilled with data preprocessing in the existing ComE infrastructure and outside of it utilizing Jupyter Notebooks. These steps are needed to be able to effectively apply the ComE algorithm on the twitter data for community embeddings.
 
-Using a Jupyter notebook two datasets were generated for input into ComE:
+\subsubsection{Sparse Adjacency Matrix}
+ComE takes a sparse adjacency matrix as input for representing the graph on which to apply the algorithm.
 
-\subsubsection{Graph} The graph dataset contains a union of the three edge list datasets, therefore containing interactions concerning all events instead of one of the three.
+The ComE repository includes functionality in \textit{graph\_utils.py} for importing the graph as a sparse adjacency matrix from a MatLib file.\cite{ComE} The graph obtained from crawling twitter data is in the format of an edge list with one edge per row of the csv file. To convert an edge list to a sparse adjacency matrix, two functions were added to \textit{graph\_utils.py}:
 
-\subsubsection{Labels} The label dataset contains labels from 0 to 7 for each node. There are eight labels, because each user can attend none, one, two, or all of the three conferences.
-\\
+\begin{itemize}
+	\item $adjacency\_matrix\_from\_edges()$
+	\item $load\_csv\_edges()$
+\end{itemize}
 
-The preprocessing procedure for the twitter data mentioned above allows us to utilize ComE's ability to cluster nodes purely from interaction data and then test the results against our ground truth. The ground truth being which events a specific user attended.
+See section \ref{edge_lists} for details on the implementation.
+
+\subsubsection{Labels} ComE requires a labeled training dataset to be able to execute community embeddings. Specifically, ComE determines the number of clusters $K$ from the labels \cite{ComE} and we will be using the ground truth supplied by the labels to test ComE's resulting communities against.
+
+Jupyter notebooks have been chosen for this task, due to the ability to swiftly iterate on solutions and algorithms, also the size of the supplied data allows for local computation on a personal computer.
+
+The preprocessing procedure for the twitter data mentioned above allows us to utilize ComE's ability to cluster nodes purely from interaction data and then test the results against our ground truth. The ground truth being if a specific user attended an event or not.
+
+\subsection{Labels}
+
+The users of each event dataset correspond to the nodes of the graph. Considering we have three datasets with a user identification column, this raises the following question: Do user identifiers apply across events? This question is important to know if the event datasets can be unioned and create an analysis on the whole dataset instead of doing multiple separate analyses.
+
+If the user identifier applies over all three events, the data can be unioned and eight labels (communities) could be extrapolated:
+
+\begin{enumerate}
+	\item attended no conferences
+	\item attended anthrocon
+	\item attended comiccon2017
+	\item attended icann2016
+	\item attended anthrocon, and comiccon2017
+	\item attended anthrocon, and icann2016
+	\item attended comiccon2017, and icann2016
+	\item attended anthrocon, comiccon2017, and icann2016
+\end{enumerate}
+
+These eight labels combining the data of all three events seemed logical at first and was implemented in the jupyter notebook at \textit{preprocessing/generate\_labels-old.ipynb}.
+
+Further data exploration led to the insight, that the user identifiers for all datasets start with the value $0$ and all user identifiers between the value $0$ and the maximum of the user identifiers for that event are present in the specific event. See \textit{preprocessing/user\_ids.ipynb} for detailed insights. Both insights suggest, that the user identifier does not after all apply across event datasets. Therefore, the event datasets will need to be tested individually. For each dataset there will be a separate binary labeling:
+
+\begin{enumerate}
+	\item did attended conference
+	\item did not attended conference
+\end{enumerate}
+
+The implementation for binary label generation can be found here: \textit{preprocessing/generate\_labels.ipynb}
 
 \section{Experiment}
 
-The experiment was run with the afore mentioned generated datasets graph and labels.
+The experiment was run on the twitter data described in Section \ref{twitter_data} using Python 3.6 and PyCharm. All code that has been used and written for the experiments is available at the GitHub repository \textit{abegehr/}
 
 \subsection{Hyper-parameters}
 
@@ -202,7 +249,7 @@ for i in range(node_min, node_max + 1):
 np.savetxt('twitter.labels', nodes, delimiter='\t', fmt=['%i', '%i'])
 \end{lstlisting}
 
-\subsection{Read CSVs}
+\subsection{Read CSVs} \label{edge_lists}
 
 \begin{lstlisting}[language=python]
 import numpy as np
