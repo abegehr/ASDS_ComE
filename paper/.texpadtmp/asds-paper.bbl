@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,6 +36,18 @@
 \providecommand\bibinfo[2]{#2}
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Begehr}{Begehr}{[n.d.]}]%
+        {asds}
+\bibfield{author}{\bibinfo{person}{Anton Begehr}.}
+  \bibinfo{year}{[n.d.]}\natexlab{}.
+\newblock \bibinfo{title}{abegehr/ASDS\_ComE}.
+\newblock
+\newblock
+\newblock
+\shownote{data last pushed to GitHub on 2019-09-01,
+  \url{https://github.com/andompesta/ComE}.}
+
 
 \bibitem[\protect\citeauthoryear{Cavallari}{Cavallari}{[n.d.]}]%
         {ComE}

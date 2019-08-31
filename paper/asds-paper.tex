@@ -127,17 +127,79 @@ The implementation for binary label generation can be found here: \textit{prepro
 
 \section{Experiment}
 
-The experiment was run on the twitter data described in Section \ref{twitter_data} using Python 3.6 and PyCharm. All code that has been used and written for the experiments is available at the GitHub repository \textit{abegehr/}
+The experiment was run on the twitter data described in Section \ref{twitter_data} using Python 3.6 and PyCharm 2019.1.4 (Professional Edition). All code that has been used and is written to run this experiment is available at the GitHub repository \textit{abegehr/ASDS\_ComE}:\\\url{https://github.com/abegehr/ASDS_ComE}.\cite{asds}
 
-\subsection{Hyper-parameters}
+\subsection{Hyperparameters}
 
-ComE has multiple hyper-parameters.
+ComE requires setting multiple hyperparameters. Starting with the number $K$ of communities to be identified, over the size of batches to be used for computation, through to the number of iterations the algorithm should run through, many hyperparameters need to be set.
+The experiment uses the following hyperparameters:
 
-For simplicity reasons, the hyper-parameters were not tuned. The experiment uses the default hyper-parameters that are present in the ComE GitHub repository for running an experiment on the DBLP dataset\cite{ComE}.
+\begin{lstlisting}[language=python]
+# hyperparameters
+number_walks = 10
+walk_length = 80
+representation_size = 2
+num_workers = 10
+num_iter = 3
+reg_covar = 0.00001
+batch_size = 50
+window_size = 10
+negative = 5
+lr = 0.025
+alpha_betas = [(0.1, 0.1)]
+down_sampling = 0.0
+ks = [2]
+\end{lstlisting}
+
+Find following a brief description of each hyperparameter:\cite{Cav17}
+\begin{itemize}
+	\item \textit{number\_walks}: number of random walks for each node in sampling
+	\item \textit{walk\_length}: length of each random walk path in sampling
+	\item \textit{representation\_size}: number of dimensions of embedding space
+	\item \textit{num\_workers}: number of threads to use for computation
+	\item \textit{num\_iter}: number of overall iterations to run
+	\item \textit{reg\_covar}: regularization coefficient to ensure positive covariance
+	\item \textit{batch\_size}: number of nodes in batch
+	\item \textit{window\_size}: windows size used to compute the context embedding
+	\item \textit{negative}: number of negative samples
+	\item \textit{lr}: learning rate
+	\item \textit{alpha\_betas}: arrays of combinations of alpha and beta
+	\begin{itemize}
+    	\item \textit{alpha}: Trade-off parameter for context embedding
+    	\item \textit{beta}: Trade-off parameter for community embedding
+    \end{itemize}
+	\item \textit{down\_sampling}: relative amount to reduce the sample by
+	\item \textit{ks}: array of number of communities
+\end{itemize}
+
+The hyperparameters have been adjusted to follow advice from the original paper by \citet{Cav17}. Further hyperparameter tuning has not been applied.
+
+\subsection{Process}
+
+The code provided at the GitHub repository \textit{abegehr/ASDS\_ComE}\cite{asds}, which includes the ComE algorithm from the GitHub repository \textit{andompesta/ComE}\cite{ComE} comes in a state where it is ready to run and results are included in the committed data.
+
+If the input data should be altered to run the experiments on a different datasets, running the experiment requires the following steps:
+
+\begin{enumerate}
+	\item Generate labels for nodes using the Jupyter notebook \textit{preprocessing/generate\_labels.ipynb} and move to \textit{ComE/data/twitter/twitter.lables}.
+	\item Copy edge list to \textit{ComE/data/twitter/twitter.csv}
+	\item Open \textit{ComE/} in PyCharm. The input and output file paths in \textit{main.py} should be set correctly.
+	\item Run using the BICE configuration with Python 3.6.
+	\item This will generate multiple files in \textit{data/}. These are the results of the community embedding.
+\end{enumerate}
+
+It is also possible to run ComE a different set of graph data. To accomplish this, the edge list and labeled nodes dataset needs to be placed in the correctly named folder inside \textit{ComE/} and the settings and hyperparameters in \textit{ComeE/main.py} should be configured accordingly. See the original paper by \citeauthor{Cav17}\cite{Cav17} and the associated GitHub repository \textit{andompesta/ComE}\cite{ComE} for further details.
 
 \section{Results}
 
-Running the experiment generates multiple files. One of the files generated is a text-file containing the results of the experiment. The results text-file is named \textit{twitter\_alpha-0.1\_beta-0.1\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-5\_ds-0.0.txt}, containing references to the dataset and hyper-parameters used.
+Running the experiment generates multiple files in \textit{ComE/data/}. The following files are generated:
+\begin{itemize}
+	\item \textit{data/g_mixture.joblib}:
+	\item \textit{data/labels_pred.txt}:
+	\item \textit{data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-2_ds-0.0.txt}: 
+\end{itemize}
+
+\textit{twitter\_alpha-0.1\_beta-0.1\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-5\_ds-0.0.txt}, containing references to the dataset and hyper-parameters used.
 
 The results text-file has 2495 rows, one for each node. The first row for node 0 reads like follows:
 \begin{lstlisting}

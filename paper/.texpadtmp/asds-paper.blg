@@ -10,47 +10,48 @@ Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty year in asds
 Warning--empty year in ComE
 Warning--empty year in TwitterData
-You've used 3 entries,
+You've used 4 entries,
             5719 wiz_defined-function locations,
-            1313 strings with 15190 characters,
-and the built_in function-call counts, 2874 in all, are:
-= -- 285
-> -- 103
+            1317 strings with 15306 characters,
+and the built_in function-call counts, 3550 in all, are:
+= -- 352
+> -- 123
 < -- 0
-+ -- 31
-- -- 36
-* -- 196
-:= -- 334
-add.period$ -- 17
-call.type$ -- 3
-change.case$ -- 19
-chr.to.int$ -- 3
-cite$ -- 5
-duplicate$ -- 245
-empty$ -- 177
-format.name$ -- 40
-if$ -- 623
++ -- 36
+- -- 44
+* -- 234
+:= -- 420
+add.period$ -- 23
+call.type$ -- 4
+change.case$ -- 24
+chr.to.int$ -- 4
+cite$ -- 7
+duplicate$ -- 304
+empty$ -- 222
+format.name$ -- 48
+if$ -- 772
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 5
-newline$ -- 71
-num.names$ -- 24
-pop$ -- 117
+newline$ -- 81
+num.names$ -- 32
+pop$ -- 153
 preamble$ -- 1
-purify$ -- 34
+purify$ -- 42
 quote$ -- 0
-skip$ -- 86
+skip$ -- 105
 stack$ -- 0
-substring$ -- 177
-swap$ -- 26
+substring$ -- 210
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
-warning$ -- 2
-while$ -- 23
+type$ -- 120
+warning$ -- 3
+while$ -- 31
 width$ -- 0
-write$ -- 98
-(There were 2 warnings)
+write$ -- 116
+(There were 3 warnings)
