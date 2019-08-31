@@ -5,6 +5,11 @@
       <change beforePath="$PROJECT_DIR$/data/g_mixture.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/data/g_mixture.joblib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/labels_pred.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/labels_pred.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-2_ds-0.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter_alpha-0.1_beta-5_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-2_ds-0.0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.out" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.tex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+            <state relative-caret-position="287">
+              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
               <folding>
                 <element signature="e#20#29#0" expanded="true" />
               </folding>
@@ -181,10 +186,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29896000" />
+    <option name="totallyTimeSpent" value="30313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16309012" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -225,7 +231,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ComE_master$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1562101310397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ComE$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1567270194405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ComE$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1567273965045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/anthrocon_alpha-0.1_beta-0.1_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-5_ds-0.0.txt" />
@@ -313,8 +319,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="48" column="59" lean-forward="true" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="59" />
+        <state relative-caret-position="287">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
           <folding>
             <element signature="e#20#29#0" expanded="true" />
           </folding>
