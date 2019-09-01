@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{5}
+\begin{thebibliography}{4}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -47,23 +47,6 @@
 \newblock
 \shownote{data last pushed to GitHub on 2019-09-01,
   \url{https://github.com/andompesta/ComE}.}
-
-
-\bibitem[\protect\citeauthoryear{{Blondel}, {Guillaume}, {Lambiotte}, and
-  {Lefebvre}}{{Blondel} et~al\mbox{.}}{2008}]%
-        {lou_mod}
-\bibfield{author}{\bibinfo{person}{V.~D. {Blondel}}, \bibinfo{person}{J.-L.
-  {Guillaume}}, \bibinfo{person}{R. {Lambiotte}}, {and} \bibinfo{person}{E.
-  {Lefebvre}}.} \bibinfo{year}{2008}\natexlab{}.
-\newblock \showarticletitle{{Fast unfolding of communities in large networks}}.
-\newblock \bibinfo{journal}{\emph{Journal of Statistical Mechanics: Theory and
-  Experiment}}  \bibinfo{volume}{10} (\bibinfo{date}{Oct.}
-  \bibinfo{year}{2008}), \bibinfo{pages}{10008}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1088/1742-5468/2008/10/P10008}
-\showDOI{\tempurl}
-\showeprint[arxiv]{physics.soc-ph/0803.0476}
 
 
 \bibitem[\protect\citeauthoryear{Cavallari}{Cavallari}{[n.d.]}]%

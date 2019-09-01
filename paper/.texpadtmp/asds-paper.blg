@@ -13,45 +13,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty year in asds
 Warning--empty year in ComE
 Warning--empty year in TwitterData
-You've used 5 entries,
+You've used 4 entries,
             5719 wiz_defined-function locations,
-            1327 strings with 15564 characters,
-and the built_in function-call counts, 4858 in all, are:
-= -- 552
-> -- 175
+            1317 strings with 15306 characters,
+and the built_in function-call counts, 3550 in all, are:
+= -- 352
+> -- 123
 < -- 0
-+ -- 53
-- -- 60
-* -- 338
-:= -- 543
-add.period$ -- 28
-call.type$ -- 5
-change.case$ -- 33
-chr.to.int$ -- 5
-cite$ -- 8
-duplicate$ -- 406
-empty$ -- 291
-format.name$ -- 68
-if$ -- 1110
++ -- 36
+- -- 44
+* -- 234
+:= -- 420
+add.period$ -- 23
+call.type$ -- 4
+change.case$ -- 24
+chr.to.int$ -- 4
+cite$ -- 7
+duplicate$ -- 304
+empty$ -- 222
+format.name$ -- 48
+if$ -- 772
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 9
-newline$ -- 93
-num.names$ -- 40
-pop$ -- 185
+missing$ -- 5
+newline$ -- 81
+num.names$ -- 32
+pop$ -- 153
 preamble$ -- 1
-purify$ -- 59
+purify$ -- 42
 quote$ -- 0
-skip$ -- 142
+skip$ -- 105
 stack$ -- 0
-substring$ -- 293
-swap$ -- 46
+substring$ -- 210
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 136
+type$ -- 120
 warning$ -- 3
-while$ -- 36
+while$ -- 31
 width$ -- 0
-write$ -- 137
+write$ -- 116
 (There were 3 warnings)
