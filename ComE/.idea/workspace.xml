@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.tex" afterDir="false" />
-    </list>
+    <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -2,6 +2,8 @@
 
 \usepackage{hyperref}
 
+\usepackage{subfig}
+
 \usepackage{listings}
 \lstset{
   columns=fullflexible, 
@@ -34,11 +36,17 @@
 
 
 \begin{abstract}
-  The graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph} combines the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph. This research paper undertakes an experiment with the aims to explore ComE's inner workings and measure its effectivity of classifying crawled twitter data in comparison to Louvain Modularity with normalized mutual information.
+  The graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph} combines the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph. This research paper undertakes an experiment with the aims to explore ComE's inner workings and measure its effectivity of classifying crawled Twitter data in comparison to Louvain Modularity with normalized mutual information.
 \end{abstract}
 
 
 \maketitle
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{graphics/graph_ComE.png}
+    \caption{\textit{arthrocon} graph plotted by ComE}
+    \label{graph_ComE}
+\end{figure} 
 
 \section{Introduction}
 
@@ -47,19 +55,19 @@ In their \citeyear{Cav17} paper \textit{Learning Community Embedding with Commun
 In this paper we will explore the graph embedding algorithm ComE developed by \citeauthor{Cav17}, generate embeddings using ComE for the Twitter dataset \cite{TwitterData} crawled by \citeauthor{TwitterData}, and compare the results to communities gained by applying Louvain Modularity using normalized mutual information (NMI) as a comparison measure.
 
 
-\section{Twitter Data} \label{twitter_data}
+\section{Twitter Data} \label{Twitter_data}
 
 Crawled datasets from Twitter, combined with conference data that is supplied in the public GitHub repository \textit{fatemehsrz/Twitter\_Data} will be used.\cite{TwitterData}
 
 \subsection{Exploration}
 
-The supplied twitter data consists of three groups. Each concerning the twitter interactions of a user either attending or not attending one of three conferences. The three conferences are labeled as (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}.
+The supplied Twitter data consists of three groups. Each concerning the Twitter interactions of a user either attending or not attending one of three conferences. The three conferences are labeled as (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}.
 
 For each conference two CSVs are supplied:
 
 \begin{enumerate}
 	\item tweets: For each tweet an unique identifier, the content of tweet, an identifier for the user who posted the tweet and a label determining if the suer attended the conference is supplied. 
-	\item edgelist: Each row represents an edge between two users. It will be assumed, that each edge represents an interaction on twitter. For example commenting and liking would count as interactions.
+	\item edgelist: Each row represents an edge between two users. It will be assumed, that each edge represents an interaction on Twitter. For example commenting and liking would count as interactions.
 \end{enumerate}
 
 The tweets id and content will be disregarded in our investigation, because we assume the tweet id does not include information we can utilize since ComE does not support property graphs and we will not be participating in any NLP practices in this experiment.
@@ -105,25 +113,23 @@ Next to obvious requirements of graph embedding algorithms, the following requir
 
 \subsection{Data Preparation}
 
-The two requirements of formatting the graph as a sparse adjacency matrix and the nodes with labels that make sense from an application standpoint will be fulfilled with data preprocessing in the existing ComE infrastructure and outside of it utilizing Jupyter Notebooks. These steps are needed to be able to effectively apply the ComE algorithm on the twitter data for community embeddings.
+The two requirements of formatting the graph as a sparse adjacency matrix and the nodes with labels that make sense from an application standpoint will be fulfilled with data preprocessing in the existing ComE infrastructure and outside of it utilizing Jupyter Notebooks. These steps are needed to be able to effectively apply the ComE algorithm on the Twitter data for community embeddings.
 
 \subsubsection{Sparse Adjacency Matrix}
 ComE takes a sparse adjacency matrix as input for representing the graph on which to apply the algorithm.
 
-The ComE repository includes functionality in \textit{graph\_utils.py} for importing the graph as a sparse adjacency matrix from a MatLib file.\cite{ComE} The graph obtained from crawling twitter data is in the format of an edge list with one edge per row of the csv file. To convert an edge list to a sparse adjacency matrix, two functions were added to \textit{graph\_utils.py}:
+The ComE repository includes functionality in \textit{graph\_utils.py} for importing the graph as a sparse adjacency matrix from a MatLib file.\cite{ComE} The graph obtained from crawling Twitter data is in the format of an edge list with one edge per row of the csv file. To convert an edge list to a sparse adjacency matrix, two functions were added to \textit{graph\_utils.py}:
 
 \begin{itemize}
 	\item $adjacency\_matrix\_from\_edges()$
 	\item $load\_csv\_edges()$
 \end{itemize}
 
-See section \ref{edge_lists} for details on the implementation.
-
 \subsubsection{Labels} ComE requires a labeled training dataset to be able to execute community embeddings. Specifically, ComE determines the number of clusters $K$ from the labels \cite{ComE} and we will be using the ground truth supplied by the labels to test ComE's resulting communities against.
 
 Jupyter notebooks have been chosen for this task, due to the ability to swiftly iterate on solutions and algorithms, also the size of the supplied data allows for local computation on a personal computer.
 
-The preprocessing procedure for the twitter data mentioned above allows us to utilize ComE's ability to cluster nodes purely from interaction data and then test the results against our ground truth. The ground truth being if a specific user attended an conference or not.
+The preprocessing procedure for the Twitter data mentioned above allows us to utilize ComE's ability to cluster nodes purely from interaction data and then test the results against our ground truth. The ground truth being if a specific user attended an conference or not.
 
 \subsection{Labels}
 
@@ -153,52 +159,41 @@ Further data exploration led to the insight, that the user identifiers for all d
 
 The implementation for binary label generation can be found here: \textit{preprocessing/generate\_labels.ipynb}
 
+\section{ComE}
+
+ComE stands for \underline{Com}munity \underline{E}mbedding. A community is a group of nodes that relate to each other through some concept. A community embedding is a vector representation of such a community.
+
+Most solutions in the space of community embeddings do community detection and node embeddings separately and then aggregate the node embeddings for each detected community to create community embeddings. ComE takes a different, closed-loop, iterable approach. Instead of doing node embeddings and community detection separately, \citeauthor{Cav17} realized that community detection can benefit from node embedding, node embedding can benefit from community embedding, and community embedding in turn benefits from community detection.\cite{Cav17} This creates a closed loop that can be iterated on.
+
+
+
 \section{Experiment}
 
-The experiment was run on the twitter data described in Section \ref{twitter_data} using Python 3.6 and PyCharm 2019.1.4 (Professional Edition). All code that has been used and is written to run this experiment is available at the GitHub repository \textit{abegehr/ASDS\_ComE}:\\\url{https://github.com/abegehr/ASDS_ComE}.\cite{asds}
+The experiment was run on the Twitter data described in Section \ref{Twitter_data} using Python 3.6 and PyCharm 2019.1.4 (Professional Edition). All code that has been used and is written to run this experiment is available at the GitHub repository \textit{abegehr/ASDS\_ComE}:\\\url{https://github.com/abegehr/ASDS_ComE}.\cite{asds}
 
 \subsection{Hyperparameters}
 
 ComE requires setting multiple hyperparameters. Starting with the number $K$ of communities to be identified, over the size of batches to be used for computation, through to the number of iterations the algorithm should run through, many hyperparameters need to be set.
-The experiment uses the following hyperparameters:
+The experiment uses the following hyperparameters:\cite{Cav17}
 
 \begin{lstlisting}[language=python]
 # hyperparameters
-number_walks = 10
-walk_length = 80
-representation_size = 2
-num_workers = 10
-num_iter = 3
-reg_covar = 0.00001
+number_walks = 10  # random walks for each node in sampling
+walk_length = 80  # length of each random walk path in sampling
+representation_size = 2  # dimensions of embedding space
+num_workers = 10  # threads to use for computation
+num_iter = 3  # overall iterations to run
+reg_covar = 0.00001  # regularization coefficient to ensure positive covariance
 batch_size = 50
-window_size = 10
-negative = 5
-lr = 0.025
-alpha_betas = [(0.1, 0.1)]
+window_size = 10  # windows size used to compute the context embedding
+negative = 5  # number of negative samples
+lr = 0.025  # learning rate
+alpha_betas = [(0.1, 0.1)]  # array of combinations of alpha and beta
+#alpha: Trade-off parameter for context embedding
+#beta: Trade-off parameter for community embedding
 down_sampling = 0.0
-ks = [2]
+ks = [2]  # array of number of communities
 \end{lstlisting}
-
-Find following a brief description of each hyperparameter:\cite{Cav17}
-\begin{itemize}
-	\item \textit{number\_walks}: number of random walks for each node in sampling
-	\item \textit{walk\_length}: length of each random walk path in sampling
-	\item \textit{representation\_size}: number of dimensions of embedding space
-	\item \textit{num\_workers}: number of threads to use for computation
-	\item \textit{num\_iter}: number of overall iterations to run
-	\item \textit{reg\_covar}: regularization coefficient to ensure positive covariance
-	\item \textit{batch\_size}: number of nodes in batch
-	\item \textit{window\_size}: windows size used to compute the context embedding
-	\item \textit{negative}: number of negative samples
-	\item \textit{lr}: learning rate
-	\item \textit{alpha\_betas}: arrays of combinations of alpha and beta
-	\begin{itemize}
-    	\item \textit{alpha}: Trade-off parameter for context embedding
-    	\item \textit{beta}: Trade-off parameter for community embedding
-    \end{itemize}
-	\item \textit{down\_sampling}: relative amount to reduce the sample by
-	\item \textit{ks}: array of number of communities
-\end{itemize}
 
 The hyperparameters have been adjusted to follow advice from the original paper by \citet{Cav17}. Further hyperparameter tuning has not been applied.
 
@@ -223,13 +218,13 @@ It is also possible to run ComE a different set of graph data. To accomplish thi
 Running the experiment generates multiple files in \textit{ComE/data/}. The following files are generated:
 \begin{itemize}
 	\item \textit{twitter\_pre-training.bin}
-	\item \textit{twitter/twitter.walks.*}
+	\item \textit{twitter/Twitter.walks.*}
 	\item \textit{g\_mixture.joblib}: community embedding in the form of a saved binary of the gaussian mixture model where each gaussian represents one community.
-	\item \textit{labels\_pred.txt}: predicted labels for each node in the order or nodes supplied by \textit{twitter.labels}.
+	\item \textit{labels\_pred.txt}: predicted labels for each node in the order or nodes supplied by \textit{Twitter.labels}.
 	\item \textit{twitter\_alpha-0.1\_beta-5\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-2\_ds-0.0.txt}: node embeddings for each node where each line holds the node id and one value for each of the $K$ dimension of the embedding space.
 \end{itemize}
 
-\textit{g\_mixture.joblib}, \textit{labels\_pred.txt}, and \textit{twitter\_alpha-0.1\_beta-5\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-2\_ds-0.0.txt} can be considered the final results of the algorithm.
+\textit{g\_mixture.joblib}, \textit{labels\_pred.txt}, and \textit{Twitter\_alpha-0.1\_beta-5\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-2\_ds-0.0.txt} can be considered the final results of the algorithm.
 
 ComE was executed for all three conferences: (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}. The resulting files can be found in the GitHub repository \textit{abegehr/ASDS\_ComE}\cite{asds} at:
 \begin{enumerate}
@@ -252,7 +247,7 @@ These are very low values for normalized mutual information. NMI is defined betw
 
 Louvain Modularity is a proven method for community detection on large networks created by Blondel et al. from the University of Louvain. The method is a greedy optimization method. \cite{lou_mod}
 
-Louvain Modularity can be used to generate prediction labels solely from a graphs edges and requires less complex structures and computations in comparison to ComE. Louvain Modularity leverages the feature of modularity, which is the fraction of edges that fall within the given groups minus the expected fraction if edges were distributed at random.\cite{mod}. To apply Louvain Modularity the number of communities $K$ does not need to be supplied.
+Louvain Modularity can be used to generate prediction labels solely from a graphs edges and requires less complex structures and computations in comparison to ComE. To apply Louvain Modularity the number of communities $K$ does not need to be supplied.
 
 Applying Louvain Modularity on the three conference datasets results in a list of predicted label, one for each node. These labels have been computed in \textit{results/louvain\_modularity.ipynb}. Also normalized mutual information scores have been computed for the labels found by applying Louvain Modularity. The NMI scores obtained through the application of Louvain Modularity are listed here:
 
@@ -262,63 +257,39 @@ Applying Louvain Modularity on the three conference datasets results in a list o
 	\item \textit{icann2016}: $NMI_l \approx 0.0225$
 \end{enumerate}
 
-These NMI scores look very similar to the NMI scores obtained by ComE and are very low as well.
+These NMI scores look very similar to the NMI scores obtained by ComE and are very low. Indeed comparable to the NMI scores obtained by ComE.
 
 \subsection{Interpretation}
 
 Both the normalized mutual information scores obtained by applying ComE (section \ref{apply_ComE}) and the NMI scores obtained by applying Louvain Modularity (section \ref{apply_lm}) are very low and represent an insignificant inference of conference attendance from the graph data.
 
-To find out why neither ComE nor Louvain Modularity was able to identify conference attendance from user interactions on Twitter, we can look at one of the conferences in detail. Let's examine the \textit{anthrocon} conference further.
+To find out why neither ComE nor Louvain Modularity were able to identify conference attendance from user interactions on Twitter, we can look at one of the conferences in detail. Let's examine the \textit{anthrocon} conference further.
 
+ComE includes a graph utility that provides functionality to plot a graph. The \textit{arthrocon} graph plotted by ComE can be viewed in figure \ref{graph_ComE}. Figure \ref{graph_ComE} shows a tightly packed graph with most nodes tightly connected and a handful of nodes with low connections.
 
+\begin{figure}[H]
+    \subfloat[true]{\includegraphics[width=4cm]{graphics/embedding_true_labels.png}}
+    \subfloat[predicted]{\includegraphics[width=4cm]{graphics/embedding_predicted_labels.png}}
+    \caption{\textit{anthrocon} node embeddings colored by labels}
+    \label{node_embeddings}
+\end{figure}
 
-\section{Theory}
+Figure \ref{node_embeddings} shows two scatter plots which display the node embeddings colored with ground truth labels on the left and predicted labels on the right. The structure of the two dimensional embedding does show a similar setup as the graph in that most nodes are highly interconnected and a handful of nodes are separated.
 
-\subsection{ComE}
+\textit{Anthrocon} graph and node embedding graphics suggest that the high interconnectivity of the Twitter interaction data provides for increased difficulty of determining the conference attendance. It is possible that the Twitter data does not encompass enough knowledge about the conferences to indicate which users attended the conference and which did not.
 
-The results from applying Louvain Modularity will be presented and briefly discussed.
-
-\subsection{Normalized Mutual Information} \label{nmi}
-
-The results from applying ComE and Louvain Modularity will be compared utilizing NMI.
-
-\subsection{Louvain Modularity}
-
-The goal is to visualize the results in a two dimensional space.
+The graphs and embeddings resulting from the \textit{comiccon2017} and  \textit{icann2016} datasets look similar to the graph and embedding of the \textit{anthrocon} dataset.
 
 \section{Conclusion}
 
-In this research paper, we have run an experimentation on data crawled from twitter with the graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph}. ComE's claims to combine the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph. This research paper undertook an experiment with the aim to explore ComE's inner workings and measure its effectivity of classifying crawled twitter data in comparison to the results of Louvain Modularity by comparing normalized mutual information.
+In this research paper, we have run an experimentation on data crawled from Twitter with the graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph}. ComE's authors claims to combine the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph.
 
-No conclusive answer can be given, because the results are similar. This is because of data.
+The experiment attempted to predict conference attendance from user interactions on twitter. The experiment was run on three datasets: (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}. Normalized Mutual Information (NMI) was used to compare the predicted and ground truth labels and measure ComE's effectivity on the given datasets and problem space. Louvain Modularity was applied as well to compare ComE's results to a proven solution for community detection. Both ComE and Louvain Modularity achieved insignificant NMI scores. A possible reason is the high interconnectivity of users on Twitter, which clouds the knowledge that can be extracted from this data.
 
-
+Just because this experiment was not able to extract knowledge about conference attendance from the supplied Twitter data, does not mean that the Twitter data does not include this information. Further hyperparameter optimization may lead to better results. Also a down sampling edges may decrease noise sufficiently to provide a clearer view. Increasing processing power and looking at more iterations of applying ComE may also provide further results.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{sources}
-
-
-\appendix
-
-\section{Code}
-
-\subsection{Read CSVs} \label{edge_lists}
-
-\begin{lstlisting}[language=python]
-import numpy as np
-from scipy.sparse import coo_matrix
-
-def adjacency_matrix_from_edges(edges):
-    return coo_matrix((np.zeros(len(edges)), (edges[:, 0], edges[:, 1])))
-
-def load_csv_edges(file_, undirected=True):
-  edges = np.genfromtxt(file_, dtype=int, delimiter=',')
-
-  adj_matrix = adjacency_matrix_from_edges(edges)
-
-  return from_numpy(adj_matrix, undirected)
-\end{lstlisting}
-
 
 \end{document}
 \endinput
