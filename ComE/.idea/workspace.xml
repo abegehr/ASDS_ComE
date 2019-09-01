@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.labels" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.labels" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.0" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.1" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.2" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.3" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.4" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.5" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.6" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.7" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.8" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.9" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../paper/asds-paper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.pdf" afterDir="false" />

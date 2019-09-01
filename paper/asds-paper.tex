@@ -218,127 +218,89 @@ If the input data should be altered to run the experiments on a different datase
 
 It is also possible to run ComE a different set of graph data. To accomplish this, the edge list and labeled nodes dataset needs to be placed in the correctly named folder inside \textit{ComE/} and the settings and hyperparameters in \textit{ComeE/main.py} should be configured accordingly. See the original paper by \citeauthor{Cav17}\cite{Cav17} and the associated GitHub repository \textit{andompesta/ComE}\cite{ComE} for further details.
 
-\subsection{Results}
+\subsection{Results} \label{apply_ComE}
 
 Running the experiment generates multiple files in \textit{ComE/data/}. The following files are generated:
 \begin{itemize}
+	\item \textit{twitter\_pre-training.bin}
+	\item \textit{twitter/twitter.walks.*}
 	\item \textit{g\_mixture.joblib}: community embedding in the form of a saved binary of the gaussian mixture model where each gaussian represents one community.
 	\item \textit{labels\_pred.txt}: predicted labels for each node in the order or nodes supplied by \textit{twitter.labels}.
 	\item \textit{twitter\_alpha-0.1\_beta-5\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-2\_ds-0.0.txt}: node embeddings for each node where each line holds the node id and one value for each of the $K$ dimension of the embedding space.
 \end{itemize}
 
-ComE was executed for all three conferences: (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}. The resulting files can be found at:
+\textit{g\_mixture.joblib}, \textit{labels\_pred.txt}, and \textit{twitter\_alpha-0.1\_beta-5\_ws-10\_neg-5\_lr-0.025\_icom-62\_ind-62\_k-2\_ds-0.0.txt} can be considered the final results of the algorithm.
+
+ComE was executed for all three conferences: (1) \textit{anthrocon}, (2) \textit{comiccon2017}, and (3) \textit{icann2016}. The resulting files can be found in the GitHub repository \textit{abegehr/ASDS\_ComE}\cite{asds} at:
 \begin{enumerate}
-	\item anthrocon: \textit{}
-	\item comiccon2017: \textit{}
-	\item icann2016: \textit{}
+	\item anthrocon: \textit{results/data/anthrocon/}
+	\item comiccon2017: \textit{results/data/comiccon2017/}
+	\item icann2016: \textit{results/data/icann2016/}
 \end{enumerate}
 
+To compare the effectiveness of ComE with a proven solutions for community detection on graphs, normalized mutual information (NMI) has been chosen. The normalized mutual information scores for all three conference datasets are as follows:
 
-\subsection{Louvain Modularity}
+\begin{enumerate}
+	\item \textit{anthrocon}: $NMI_c \approx 0.0007$
+	\item \textit{comiccon2017}: $NMI_c \approx 0.0010$
+	\item \textit{icann2016}: $NMI_c \approx 0.0031$
+\end{enumerate}
+
+These are very low values for normalized mutual information. NMI is defined between $0.0$ and $1.0$, where $1.0$ represents perfect, complete labeling of the data. ComE's NMI scores will be compared with NMI scores obtained by applying Louvain Modularity on the same conference datasets.
+
+\subsection{Louvain Modularity} \label{apply_lm}
+
+Louvain Modularity is a proven method for community detection on large networks created by Blondel et al. from the University of Louvain. The method is a greedy optimization method. \cite{lou_mod}
+
+Louvain Modularity can be used to generate prediction labels solely from a graphs edges and requires less complex structures and computations in comparison to ComE. Louvain Modularity leverages the feature of modularity, which is the fraction of edges that fall within the given groups minus the expected fraction if edges were distributed at random.\cite{mod}. To apply Louvain Modularity the number of communities $K$ does not need to be supplied.
+
+Applying Louvain Modularity on the three conference datasets results in a list of predicted label, one for each node. These labels have been computed in \textit{results/louvain\_modularity.ipynb}. Also normalized mutual information scores have been computed for the labels found by applying Louvain Modularity. The NMI scores obtained through the application of Louvain Modularity are listed here:
+
+\begin{enumerate}
+	\item \textit{anthrocon}: $NMI_l \approx 0.0100$
+	\item \textit{comiccon2017}: $NMI_l \approx 0.0181$
+	\item \textit{icann2016}: $NMI_l \approx 0.0225$
+\end{enumerate}
+
+These NMI scores look very similar to the NMI scores obtained by ComE and are very low as well.
+
+\subsection{Interpretation}
+
+Both the normalized mutual information scores obtained by applying ComE (section \ref{apply_ComE}) and the NMI scores obtained by applying Louvain Modularity (section \ref{apply_lm}) are very low and represent an insignificant inference of conference attendance from the graph data.
+
+To find out why neither ComE nor Louvain Modularity was able to identify conference attendance from user interactions on Twitter, we can look at one of the conferences in detail. Let's examine the \textit{anthrocon} conference further.
+
+
+
+\section{Theory}
+
+\subsection{ComE}
 
 The results from applying Louvain Modularity will be presented and briefly discussed.
 
-\section{Comparison}
+\subsection{Normalized Mutual Information} \label{nmi}
 
 The results from applying ComE and Louvain Modularity will be compared utilizing NMI.
 
-\section{Graph Visualizations}
+\subsection{Louvain Modularity}
 
 The goal is to visualize the results in a two dimensional space.
 
-\section{Critique}
-
-Critique of ComE.
-
-For example the number of communities K needs to be supplied for the algorithm to work.
-
-\section{Algorithm}
-
-Deep dive into the technical workings of the algorithm.
-
-For example: Gaussian Mixture Model for community embeddings and likelihood maximization.
-
 \section{Conclusion}
 
-Why is ComE better or worse at this specific task?
+In this research paper, we have run an experimentation on data crawled from twitter with the graph embedding algorithm ComE developed by \citeauthor{Cav17} in their \citeyear{Cav17} paper \textit{Learning Community Embedding with Community Detection and Node Embedding on Graph}. ComE's claims to combine the powers of community detection, community embedding, and node embedding in a closed loop optimizing algorithm to generate low dimensional embeddings for communities and nodes in a graph. This research paper undertook an experiment with the aim to explore ComE's inner workings and measure its effectivity of classifying crawled twitter data in comparison to the results of Louvain Modularity by comparing normalized mutual information.
+
+No conclusive answer can be given, because the results are similar. This is because of data.
+
 
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{sources}
 
 
-\begin{acks}
-To the reader of this early draft. Please mark which sections of the paper, you would find the most interesting and worthwhile to go deep on.
-\end{acks}
-
-
 \appendix
 
 \section{Code}
-
-\subsection{Generate graph}
-
-\begin{lstlisting}[language=python]
-import numpy as np
-# union all edge lists into one graph
-
-# load data
-path = "data/graphs/"
-edges1 = np.genfromtxt(path+"anthrocon_edgelist.csv", dtype=int, delimiter=',')
-edges2 = np.genfromtxt(path+"comiccon2017_edgelist.csv", dtype=int, delimiter=',')
-edges3 = np.genfromtxt(path+"icann2016_edgelist.csv", dtype=int, delimiter=',')
-
-# union edges
-graph = np.concatenate([edges1, edges2, edges3])
-graph.shape
-
-np.savetxt('twitter.csv', graph, delimiter=',', fmt=['%i', '%i'])
-\end{lstlisting}
-
-\subsection{Generate Labels}
-
-\begin{lstlisting}[language=python]
-import pandas as pd
-# generate labels from tweet data
-
-# load data
-path = "data/tweets/"
-tweets1 = pd.read_csv(path+"anthrocon_tweets.csv", delimiter=',')
-tweets2 = pd.read_csv(path+"comiccon2017_tweets.csv", delimiter=',')
-tweets3 = pd.read_csv(path+"icann2016_tweets.csv", delimiter=',')
-
-def get_attendees(tweets):
-    return tweets.loc[tweets['attendance_label'] == 1]['node_id']
-
-nodes1 = get_attendees(tweets1).to_numpy()
-nodes2 = get_attendees(tweets2).to_numpy()
-nodes3 = get_attendees(tweets3).to_numpy()
-
-all_nodes = np.concatenate([nodes1, nodes2, nodes3])
-
-node_min = all_nodes.min()
-node_max = all_nodes.max()
-print("node_min: ", node_min)
-print("node_max: ", node_max)
-
-nodes = []
-for i in range(node_min, node_max + 1):
-    a = (i in nodes1, i in nodes2, i in nodes3)
-    
-    if a == (1, 1, 1): label = 7
-    elif a == (0, 1, 1): label = 6
-    elif a == (1, 0, 1): label = 5
-    elif a == (1, 1, 0): label = 4
-    elif a == (0, 0, 1): label = 3
-    elif a == (0, 1, 0): label = 2
-    elif a == (1, 0, 0): label = 1
-    else: label = 0
-    
-    nodes.append([i, label])
-
-np.savetxt('twitter.labels', nodes, delimiter='\t', fmt=['%i', '%i'])
-\end{lstlisting}
 
 \subsection{Read CSVs} \label{edge_lists}
 
