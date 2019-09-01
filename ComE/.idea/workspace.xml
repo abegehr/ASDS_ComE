@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77c2fdd0-448b-4043-b454-e880be2799e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/graph/node_pos.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/twitter/twitter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/twitter/twitter.labels" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.labels" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.0" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.0" afterDir="false" />
@@ -16,6 +14,10 @@
       <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.7" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.8" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/twitter/twitter.walks.9" beforeDir="false" afterPath="$PROJECT_DIR$/data/twitter/twitter.walks.9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/.texpadtmp/asds-paper.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../paper/asds-paper.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../paper/asds-paper.tex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +194,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30859000" />
+    <option name="totallyTimeSpent" value="31262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -237,7 +239,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ComE_master$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1562101310397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ComE$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1567290545447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ComE$BICE.coverage" NAME="BICE Coverage Results" MODIFIED="1567312220748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/anthrocon_alpha-0.1_beta-0.1_ws-10_neg-5_lr-0.025_icom-62_ind-62_k-5_ds-0.0.txt" />
